@@ -3,13 +3,13 @@ import Header from "./components/Header";
 import Formulario from "./components/Formulario";
 import ListaRecetas from "./components/ListaRecetas";
 
-import CategoriasProvider from "./context/CategoriaContext";
+import IngredientesProvider from "./context/IngredienteContext";
 import RecetasProvider from "./context/RecetasContext";
 import ModalProvider from "./context/ModalContext";
 
 function App() {
   return (
-    <CategoriasProvider>
+    <IngredientesProvider>
       <RecetasProvider>
         <ModalProvider>
           <Header />
@@ -21,7 +21,7 @@ function App() {
           </div>
         </ModalProvider>
       </RecetasProvider>
-    </CategoriasProvider>
+    </IngredientesProvider>
   );
 }
 

@@ -1,15 +1,14 @@
 import React, { useContext, useState } from "react";
-import { CategoriasContext } from "../context/CategoriaContext";
+import { IngredientesContext } from "../context/IngredienteContext";
 
 import { RecetasContext } from "../context/RecetasContext";
 
 const Formulario = () => {
   const [busqueda, guardarBusqueda] = useState({
-    nombre: "",
-    categoria: "",
+    ingrediente: "",
   });
 
-  const { categorias } = useContext(CategoriasContext);
+  const { ingredientes } = useContext(IngredientesContext);
   const { buscarRecetas, guardarConsultar } = useContext(RecetasContext);
 
   //Leer valores del usuario
@@ -30,36 +29,30 @@ const Formulario = () => {
       }}
     >
       <fieldset className="text-center">
-        <legend>Busca bebidas por Categoría o Ingrediente</legend>
+        <legend>Busca bebidas por Ingrediente</legend>
       </fieldset>
       <div className="row mt-4">
         <div className="col-md-4">
-          <input
-            type="text"
-            className="form-control"
-            name="nombre"
-            placeholder="Buscar por Ingrediente"
-            onChange={getDateRecetas}
-          />
-        </div>
-        <div className="col-md-4">
           <select
             className="form-control"
-            name="categoria"
+            name="ingrediente"
             onChange={getDateRecetas}
           >
-            <option value="">-- Selecciona Categoria --</option>
-            {categorias.map((categoria) => (
-              <option key={categoria.strCategory} value={categoria.strCategory}>
-                {categoria.strCategory}
+            {/* <option>--Selecciona Ingrediente--</option> */}
+            {ingredientes.map((ingrediente) => (
+              <option
+                key={ingrediente.strIngredient1}
+                value={ingrediente.strIngredient1}
+              >
+                {ingrediente.strIngredient1}
               </option>
             ))}
           </select>
         </div>
-        <div className="col-md-4">
+        <div className="col-md-4 ">
           <input
             type="submit"
-            className="btn btn-block btn-primary"
+            className="btn btn-block btn-primary  "
             value="Buscar Bebidas"
           />
         </div>
